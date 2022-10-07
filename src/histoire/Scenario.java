@@ -1,6 +1,5 @@
 package histoire;
-
-import personnages.*;;
+import personnages.*;
 
 
 public class Scenario {
