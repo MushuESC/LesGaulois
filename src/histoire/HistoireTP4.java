@@ -2,7 +2,7 @@ package histoire;
 import personnages.*;
 
 /**
- * @author Simon
+ * @author Simon Valverde
  *
  */
 

@@ -1,14 +1,21 @@
+/**
+ * 
+ */
 package personnages;
 
-public class Chef {
-	private String nom;
+/**
+ * @author Simon
+ *
+ */
+public class Chef extends Humain {
 	private int force;
+	private int effetPotion = 1;
 	private Village village;
 	
-	public Chef(String nom, int force, Village vilalge) {
-		this.nom = nom;
+	public Chef(String nom, int force, Village village,String boisson, int argent) {
+		super(nom,boisson,argent);
 		this.force = force;
-		this.village = vilalge;
+		this.village = village;
 		this.village.setChef(this);
 	}
 
@@ -19,22 +26,19 @@ public class Chef {
 		return village;
 	}
 	
-	public String getNom() {
-	return nom;
-	}
-	
+	@Override
 	public void parler(String texte) {
 		System.out.println(prendreParole() + "� " + texte + "�");
 	}
 	
-	private String prendreParole() {
-		return "Le chef " + nom + " du village " + getVillage().getNom() + " : ";
+	@Override
+	public String prendreParole() {
+		return "Le chef " + this.getNom() + " du village " + getVillage().getNom() + " : ";
 	}
 	
 	public void frapper(Romain romain) {
-		System.out.println(nom + " envoie un grand coup dans la m�choire de " +
+		System.out.println(this.getNom() + " envoie un grand coup dans la m�choire de " +
 			romain.getNom());
 		romain.recevoirCoup(force / 3);
 	}
 }
-

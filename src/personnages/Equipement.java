@@ -1,5 +1,8 @@
 package personnages;
-
+/**
+ * @author Simon
+ *
+ */
 public enum Equipement {
 	CASQUE("casque"),
 	BOUCLIER("bouclier");

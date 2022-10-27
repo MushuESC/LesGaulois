@@ -1,15 +1,22 @@
+/**
+ * 
+ */
+
 package personnages;
-import java.util.*;
 
+import java.util.Random;
 
-public class Druide {
-	private String nom;
+/**
+ * @author Simon
+ *
+ */
+public class Druide extends Humain {
 	private int forcePotion =1;
 	private int effetPotionMin;
 	private int effetPotionMax;
 	
-	public Druide(String nom, int effetPotionMin, int effetPotionMax) {
-		this.nom = nom;
+	public Druide(String nom, int effetPotionMin, int effetPotionMax,String boisson, int argent) {
+		super(nom,boisson,argent);
 		this.effetPotionMin = effetPotionMin;
 		this.effetPotionMax = effetPotionMax;
 		parler("Bonjour, je suis le druide " + nom + " et ma potion peut aller d'une force "
@@ -19,7 +26,7 @@ public class Druide {
 	
 	public void preparerPotion() {
 		Random rand = new Random();
-		this.forcePotion = rand.nextInt(effetPotionMin);
+		this.forcePotion = rand.nextInt(effetPotionMax);
 		if (forcePotion > 7) {
 			parler("J'ai préparé une super potion de force " + forcePotion);
 		}else {
@@ -36,20 +43,17 @@ public class Druide {
 		}
 	}
 	
-	public String getNom() {
-		return nom;
-	}
-	
 	public void parler(String texte) {
 		System.out.println(prendreParole() + "« " + texte + "»");
 	}
 	
-	private String prendreParole() {
-		return "Le druide " + nom + " : ";
+	@Override
+	public String prendreParole() {
+		return "Le druide " + this.getNom() + " : ";
 	}
 	
 	public static void main(String[] args) {
-		Druide panoramix = new Druide("Panoramix",5,10);
-		panoramix.preparerPotion();
+		/*Druide panoramix = new Druide("Panoramix",5,10);
+		panoramix.preparerPotion();*/
 	}
 }
